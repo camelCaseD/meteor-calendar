@@ -1,0 +1,55 @@
+<template name="calendar">
+	{{#if currentUser}}
+		<div class="calendar">
+			<div class="header">
+				<span class="other-year last-year">{{previousYear}}</span>
+
+				<span class="month-header">{{headerTitle}}</span>
+
+				<span class="other-year next-year">{{nextYear}}</span>
+			</div>
+
+			<div class="month">
+				<div class="weeks">
+					<span>sun</span>
+					<span>mon</span>
+					<span>tue</span>
+					<span>wed</span>
+					<span>thur</span>
+					<span>fri</span>
+					<span>sat</span>
+				</div>
+
+				<div class="days">
+					{{#each weeks}}
+						{{> week}}
+					{{/each}}
+					<div class="active" style="{{initialActiveStyle}}"></div>
+				</div>
+			</div>
+
+			<div class="arrow next">&#8594;</div>
+			<div class="arrow previous">&#8592;</div>
+
+		</div>
+
+		<div class="events">
+			<div class="header">
+				<span class="label">events</span>
+				<hr />
+			</div>
+
+			<ul>
+				{{#each calendarEvents}}
+					{{> event}}
+				{{/each}}
+			</ul>
+
+			<div class="actions">
+				<button class="add"><span>+</span></button>
+			</div>
+		</div>
+	{{else}}
+		Login first.
+	{{/if}}
+</template>

@@ -1,0 +1,38 @@
+<template name="loading">
+	<div class="calendar">
+    <div class="header">
+      <span class="other-year last-year">2013</span>
+
+      <span class="month-header">Loading, 2025</span>
+
+      <span class="other-year next-year">2015</span>
+    </div>
+
+    <div class="month">
+      <div class="weeks">
+        <span>sun</span>
+        <span>mon</span>
+        <span>tue</span>
+        <span>wed</span>
+        <span>thur</span>
+        <span>fri</span>
+        <span>sat</span>
+      </div>
+
+      <div class="days">
+				{{> spinner}}
+      </div>
+    </div>
+		
+		<div class="arrow next">&#8594;</div>
+		<div class="arrow previous">&#8592;</div>
+		
+  </div>
+
+  <div class="events">
+    <div class="header">
+      <span class="label">events</span>
+			<hr />
+    </div>
+  </div>
+</template>

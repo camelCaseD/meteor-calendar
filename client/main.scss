@@ -1,0 +1,347 @@
+$greyBlue: #8a98a7;
+$black: #3e454c;
+$salmon: #ff7f66;
+$lightBlack: #3e454c;
+$white: #f3f3f3;
+
+$marginTop: 60px;
+$marginLeft: 76px;
+
+html, body, .content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
+#login-buttons {
+  z-index: -1;
+}
+
+.content {
+  margin-top: 10px;
+  height: 90%;
+}
+
+.calendar {
+  background-color: $white;
+  width: 735px;
+  height: 600px;
+  z-index: 0;
+  position: relative;
+	
+	.arrow {
+		color: $white;
+		background-color: $salmon;
+		width: 26px;
+		height: 25px;
+		border-radius: 50%;
+		position: absolute;
+		top: 335px;
+		line-height: 25px;
+		cursor: pointer;
+		text-align: center;
+		
+		&.previous {
+			left: 30px;	
+		}
+		
+		&.next {
+			left: 680px;
+		}
+	}
+}
+
+.header {
+  width: 100%;
+  padding-top: $marginTop;
+  z-index: 2;
+  
+  .month-header {
+    color: #6a7783;
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    outline: 0;
+    cursor: pointer;
+
+    &[contenteditable=true] {
+      cursor: text;
+    }
+  }
+
+  .other-year {
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    top: 5px + $marginTop;
+    color: $salmon;
+    font-size: 15px;
+    padding-top: 5px;
+    cursor: pointer;
+
+    &.last-year {
+      margin-left: $marginLeft;
+      margin-right: 136px;
+    }
+
+    &.next-year {
+      margin-left: 620px;
+    }
+  }
+}
+
+.month {
+  margin-left: $marginLeft;
+  width: 580px;
+  margin-top: 85px;
+  z-index: -1;
+
+  .days {
+    width: 580px;
+  }
+
+  div.active {
+    z-index: -2;
+    background-color: $salmon;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    padding-left: 0 !important;
+  }
+
+  .week {
+    width: 580px;
+    margin-bottom: 35px;
+
+    &:first-child {
+      margin-top: 35px;
+      height: 20px;
+    }
+
+    span {
+      width: 47px;
+      color: $black;
+      font-size: 16px;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+
+      &.active {
+        color: $white;
+      }
+			
+			&.has-events {
+				padding-bottom: 2px;
+				border-bottom: 2px dotted $salmon;
+			}
+
+      &#day-one {
+        margin-right: 60px;
+				margin-left: 15px;
+      }
+
+      &#day-two {
+        margin-right: 60px;
+				margin-left: 15px;
+      }
+
+      &#day-three {
+        margin-right: 60px;
+				margin-left: 20px;
+      }
+
+      &#day-four {
+        margin-right: 60px;
+				margin-left: 15px;
+      }
+
+      &#day-five {
+        margin-right: 60px;
+				margin-left: 20px;
+      }
+
+      &#day-six {
+        margin-right: 60px;
+				margin-left: 17px;
+      }
+
+      &#day-seven {
+        padding-left: 7px;
+				margin-left: 2px;
+      }
+
+      &.double {
+        &#day-one {
+          margin-right: 60px;
+					margin-left: 9px;
+        }
+
+        &#day-two {
+          margin-right: 60px;
+					margin-left: 6px;
+        }
+
+        &#day-three {
+          margin-right: 60px;
+					margin-left: 12px;
+        }
+
+        &#day-four {
+          margin-right: 60px;
+					margin-left: 5px;
+        }
+
+        &#day-five {
+          margin-right: 60px;
+					margin-left: 13px;
+        }
+
+        &#day-six {
+          margin-right: 60px;
+					margin-left: 8px;
+        }
+
+        &#day-seven {
+          left: -4px;
+					padding-left: 5px;
+					margin-left: 0 !important;
+        }
+      }
+
+      &.start {
+        position: absolute;
+				margin-left: 0 !important;
+        $factor: 95px;
+        $base: 40px;
+				
+				&#day-one {
+					padding-left: 0;
+				}
+				
+        &#day-two {
+          left: 160px;
+        }
+
+        &#day-three {
+          left: 252px;
+        }
+
+        &#day-four {
+          left: 340px;
+        }
+
+        &#day-five {
+          left: 435px;
+        }
+
+        &#day-six {
+          left: 525px;
+        }
+
+        &#day-seven {
+          left: 600px;
+        }
+      }
+    }
+  }
+
+  .weeks {
+    color: $black;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+
+    span {
+      margin-right: 47px;
+      width: 50px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.events {
+  width: 230px;
+  height: 600px;
+  background-color: $lightBlack;
+  position: relative;
+  top: -600px;
+  left: 735px;
+
+  .header {
+    font-size: 16px;
+    color: $salmon;
+    padding-top: 7px + $marginTop;
+    width: 100%;
+    text-align: center;
+
+    .label {
+      text-transform: uppercase;
+    }
+
+    hr {
+      height: 5px;
+      width: 10%;
+      border: none;
+      background-color: $greyBlue;
+      border-radius: 15px;
+      margin-top: 16px;
+    }
+  }
+	ul {
+		width: 100%;
+		padding: 0;
+		
+		li {
+			width: 168px;
+			list-style: none;
+			color: $greyBlue;
+			margin-left: auto;
+			margin-right: auto;
+			outline: none;
+			
+			hr {
+				height: 5px;
+				width: 100%;
+				border: none;
+				background-color: $greyBlue;
+				border-radius: 15px;
+			}
+		}
+	}
+	
+	.actions {
+		width: 100%;
+		margin-left: 30px;
+		
+		button {
+			background-color: #2c3136;
+			border-radius: 5px;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			width: 35px;
+			height: 35px;
+			
+			&.add span{
+				background-color: #ff7f66;
+				color: #2c3136;
+				border-radius: 50%;
+				width: 18px;
+				height: 18px;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				font-size: 15px;
+				line-height: 1;
+			}
+		}
+	}
+}
