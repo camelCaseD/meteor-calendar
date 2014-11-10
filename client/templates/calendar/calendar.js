@@ -263,7 +263,11 @@ Template.calendar.events({
 		if (list === null)
 			var list = e.target.parentElement.parentElement.previousElementSibling;
 		
-		Events.insert({userId: Meteor.userId(), day: parseInt(document.querySelector(".calendar span.active").innerText), year: this.year, month: this.month, title: "New Event"}, function(err, _id) {
+    var selectedDay = document.querySelector(".calendar span.active");
+    if (selectedDay === null)
+      return swal("No Day", "You need to select a dy on the calendar first", "warning");
+    
+		Events.insert({userId: Meteor.userId(), day: parseInt(selectedDay.innerText), year: this.year, month: this.month, title: "New Event"}, function(err, _id) {
 			if (err)
 				swal("Calendar Event", "Error creating new event", "error");
 		});
