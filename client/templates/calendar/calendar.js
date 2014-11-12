@@ -265,7 +265,7 @@ Template.calendar.events({
 		
     var selectedDay = document.querySelector(".calendar span.active");
     if (selectedDay === null)
-      return swal("No Day Selected", "You need to select a dy on the calendar first", "warning");
+      return swal("No Day Selected", "You need to select a day on the calendar first", "warning");
     
 		Events.insert({userId: Meteor.userId(), day: parseInt(selectedDay.innerText), year: this.year, month: this.month, title: "New Event"}, function(err, _id) {
 			if (err)
