@@ -1,9 +1,3 @@
-Template.event.helpers({
-  time: function() {
-    return moment(this.time).format("h:mm a");
-  }
-});
-
 Template.event.events({
 	"dblclick li": function(e) {
 		if (!e.target.getAttribute("contenteditable")) {
