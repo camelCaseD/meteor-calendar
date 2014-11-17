@@ -37,6 +37,10 @@ Template.event.events({
 				
 				e.target.blur();
 			});	
+		} else if (e.which === 8 && e.ctrlKey) {
+			e.preventDefault()
+			
+			Events.remove({_id: this._id});
 		}
 	}
 });
