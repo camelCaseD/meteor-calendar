@@ -1,12 +1,12 @@
 Template.event.events({
 	"dblclick li": function(e) {
 		if (!e.target.getAttribute("contenteditable")) {
-      if (document.selection !== undefined) {
-        document.selection.empty();
-      } else {
-        window.getSelection().removeAllRanges()
-      }
-    }
+	      		if (document.selection !== undefined) {
+	        		document.selection.empty();
+	      		} else {
+				window.getSelection().removeAllRanges()
+	      		}
+    		}
 		
 		e.target.setAttribute("contenteditable", true);
 		
