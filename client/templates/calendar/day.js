@@ -15,19 +15,19 @@ Template.day.helpers({
 
   cssClass: function() {
     var val = "";
-		var event = Events.findOne({day: parseInt(this.date)});
+    var event = Events.findOne({day: parseInt(this.date)});
     if (this.date >= 10) {
       val += " double";
     }
-		if (this.start) {
+    if (this.start) {
       val += " start";
     }
-		if (this.today) {
+    if (this.today) {
       val += " active";
     }
-		if (event !== undefined) {
-			val += " has-events";
-		}
+    if (event !== undefined) {
+	val += " has-events";
+    }
 
     return val;
   }
