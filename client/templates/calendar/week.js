@@ -11,8 +11,8 @@ Template.week.events({
     }
     e.target.parentNode.id = "currentRow";
     
-		if (document.querySelector("span.active") !== null)
-			document.querySelector("span.active").classList.remove("active");
+	if (document.querySelector("span.active") !== null)
+		document.querySelector("span.active").classList.remove("active");
     e.target.classList.add("active");
     
     var siblings = getSiblings(e.target.parentNode);
@@ -35,6 +35,6 @@ Template.week.events({
     var active = document.querySelector("div.active");
     
     active.setAttribute("style", "top: " + activePositions.top[row] + ";left: " + activePositions.left[column] + ";");
-		Session.set("day", parseInt(e.target.innerText));
+    Session.set("day", parseInt(e.target.innerText));
   }
 });
